@@ -1,4 +1,12 @@
-# 4D Gaussian Splatting for Real-Time Dynamic Scene Rendering
+# 🚀 4D Gaussian Splatting (Blackwell Optimized)
+
+> [!IMPORTANT]
+> This version of the repository is optimized for **NVIDIA Blackwell GPUs** (RTX 50-series). 
+> - For hardware setup and benchmarks: [README_BLACKWELL.md](./README_BLACKWELL.md)
+> - For a complete step-by-step tutorial: [RUNNING_GUIDE.md](./RUNNING_GUIDE.md)
+
+## Project Overview
+This is a clean, maintained fork focusing on real-time dynamic scene rendering using 4D Gaussian Splatting on next-generation hardware.
 
 ## CVPR 2024
 
@@ -38,14 +46,15 @@ Light Gaussian implementation: [This link](https://github.com/pablodawson/4DGaus
 
 ## Environmental Setups
 
-Please follow the [3D-GS](https://github.com/graphdeco-inria/gaussian-splatting) to install the relative packages.
+### Installation & Run
+Detailed instructions can be found in the **[RUNNING_GUIDE.md](./RUNNING_GUIDE.md)**, but here are the essentials:
 
 ```bash
 git clone https://github.com/hustvl/4DGaussians
 cd 4DGaussians
 git submodule update --init --recursive
 conda create -n Gaussians4D python=3.7 
-conda activate Gaussians4D
+1. Activate the environment: `conda activate 4dgs_blackwell`
 
 pip install -r requirements.txt
 pip install -e submodules/depth-diff-gaussian-rasterization

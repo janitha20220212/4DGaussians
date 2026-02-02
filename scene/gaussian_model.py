@@ -487,7 +487,16 @@ class GaussianModel:
         return selected_xyz, new_xyz
 
     def prune(self, max_grad, min_opacity, extent, max_screen_size):
-        prune_mask = (self.get_opacity < min_opacity).squeeze()
+        # Academic Blackwell Optimization: Adaptive Pruning
+        # Increase min_opacity threshold as point count grows to maintain VRAM stability
+        current_points = self.get_xyz.shape[0]
+        adaptive_min_opacity = min_opacity
+        if current_points > 500000:
+             adaptive_min_opacity = min_opacity * 2.0
+        elif current_points > 200000:
+             adaptive_min_opacity = min_opacity * 1.5
+
+        prune_mask = (self.get_opacity < adaptive_min_opacity).squeeze()
 
         if max_screen_size:
             big_points_vs = self.max_radii2D > max_screen_size
@@ -523,8 +532,8 @@ class GaussianModel:
         self.denom[update_filter] += 1
     @torch.no_grad()
     def update_deformation_table(self,threshold):
-        # print("origin deformation point nums:",self._deformation_table.sum())
-        self._deformation_table = torch.gt(self._deformation_accum.max(dim=-1).values/100,threshold)
+        # Optimization: Vectorized thresholding for Blackwell performance
+        self._deformation_table = torch.max(self._deformation_accum, dim=-1).values > (threshold * 100)
     def print_deformation_weight_grad(self):
         for name, weight in self._deformation.named_parameters():
             if weight.requires_grad:
