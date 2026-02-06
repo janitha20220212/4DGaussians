@@ -10,8 +10,13 @@ The project uses a specialized conda environment `4dgs_blackwell` designed for B
 - **Dependency Fixes**: Includes a critical patch for `mmcv` regressions in `render.py`.
 
 ### Architectural Enhancements
-- **SM 12.0 / 12.1 Native Targeting**: Recompiled submodules with `-gencode arch=compute_120,code=sm_120` to utilize Blackwell-specific instructions and Tensor Core optimizations.
-- **Adaptive Pruning**: Implemented dynamic point-cloud pruning in `gaussian_model.py` that scales with point density, preventing VRAM overflow on laptop GPUs while maintaining detail.
+- **SM 12.0 / 12.1 Native Targeting**: To utilize Blackwell-specific instructions and Tensor Core optimizations, you can manually add these flags to the `setup.py` of both submodules before installation:
+  ```python
+  "-std=c++17",
+  "-gencode", "arch=compute_120,code=sm_120",
+  "-gencode", "arch=compute_121,code=sm_121"
+  ```
+- **Adaptive Pruning**: Implemented dynamic point-cloud pruning in `gaussian_model.py` (line 320+) that scales with point density, preventing VRAM overflow on laptop GPUs while maintaining detail.
 - **Vectorized Operations**: Optimized the deformation table updates to use high-throughput vectorized operations for faster iterations.
 
 ### Installation & Run
