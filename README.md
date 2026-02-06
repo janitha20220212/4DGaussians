@@ -3,7 +3,7 @@
 > [!IMPORTANT]
 > This version of the repository is optimized for **NVIDIA Blackwell GPUs** (RTX 50-series). 
 > - For hardware setup and benchmarks: [README_BLACKWELL.md](./README_BLACKWELL.md)
-> - For a complete step-by-step tutorial: [RUNNING_GUIDE.md](./RUNNING_GUIDE.md)
+> - For a complete step-by-step tutorial: [RUNNING_GUIDE.md](./docs/RUNNING_GUIDE.md)
 
 ## Project Overview
 This is a clean, maintained fork focusing on real-time dynamic scene rendering using 4D Gaussian Splatting on next-generation hardware.
@@ -47,7 +47,7 @@ Light Gaussian implementation: [This link](https://github.com/pablodawson/4DGaus
 ## Environmental Setups
 
 ### Installation & Run
-Detailed instructions can be found in the **[RUNNING_GUIDE.md](./RUNNING_GUIDE.md)**, but here are the essentials:
+Detailed instructions can be found in the **[RUNNING_GUIDE.md](./docs/RUNNING_GUIDE.md)**, but here are the essentials:
 
 ```bash
 git clone https://github.com/hustvl/4DGaussians
@@ -299,7 +299,7 @@ Welcome to also check out these awesome concurrent/related works, including but 
 
 ## Contributions
 
-**This project is still under development. Please feel free to raise issues or submit pull requests to contribute to our codebase.**
+**This project is still under development. Please feel free to raise issues or submit pull requests to contribute to our codebase. See [CONTRIBUTING.md](./docs/CONTRIBUTING.md) for more details.**
 
 
 Some source code of ours is borrowed from [3DGS](https://github.com/graphdeco-inria/gaussian-splatting), [K-planes](https://github.com/Giodiro/kplanes_nerfstudio), [HexPlane](https://github.com/Caoang327/HexPlane), [TiNeuVox](https://github.com/hustvl/TiNeuVox), [Depth-Rasterization](https://github.com/ingra14m/depth-diff-gaussian-rasterization). We sincerely appreciate the excellent works of these authors.

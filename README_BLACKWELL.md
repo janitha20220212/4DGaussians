@@ -44,4 +44,4 @@ The project uses a specialized conda environment `4dgs_blackwell` designed for B
 - **Rendering Bandwidth**: The higher FPS in the paper is due to the desktop RTX 3090's massive 384-bit memory bus compared to laptop memory limits.
 
 ## 🤝 Contribution & Collaboration
-If you've made improvements using latest GPUs, see our [CONTRIBUTOR_SUMMARY.md](./CONTRIBUTOR_SUMMARY.md) and [GITHUB_CONTRIBUTION_GUIDE.md](./GITHUB_CONTRIBUTION_GUIDE.md) to help the community!
+If you've made improvements using latest GPUs, see our [CONTRIBUTING.md](./docs/CONTRIBUTING.md) to help the community!
